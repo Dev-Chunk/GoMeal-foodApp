@@ -1,0 +1,14 @@
+services:
+  node:
+    build: .
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
+    stdin_open: true
+    tty: true
